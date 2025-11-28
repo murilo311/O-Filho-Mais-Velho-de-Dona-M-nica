@@ -37,3 +37,91 @@
 
    </body>
    </html>
+<style>
+   body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:pink;
+    margin: 0;
+}
+
+.container {
+    background-color: blue;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+h1 {
+    color: beige;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: black;
+}
+
+input[type="number"] {
+    padding: 10px; 
+    margin-bottom: 15px;
+    border: 1px;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #5cb85c;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: goldenrod;
+}
+
+#resultado {
+    margin-top: 20px;
+    font-size: 18px;
+    color: orange;
+}
+</style>
+
+<script>
+   document.getElementById('calcularBtn').addEventListener('click', function() {
+
+
+    const idadeDonaMonica = parseInt(document.getElementById('idadeDonaMonica').value);
+    const idadeFilho1 = parseInt(document.getElementById('idadeFilho1').value);
+    const idadeFilho2 = parseInt(document.getElementById('idadeFilho2').value);
+
+    if (isNaN (idadeDonaMonica) || isNaN (idadeFilho1) || isNaN (idadeFilho2) || idadeDonaMonica < 0 || idadeFilho1 < 0 || idadeFilho2 < 0) {
+        document.getElementById('resultado').innerText = "Por favor, preencha todas as idades corretamente.";
+        alert('Por favar, insira idades válidas e positivas para Dona MÔnica');
+        return; // Interrompe a execução se houver erro
+    }
+
+    const idadeFilho3 = idadeDonaMonica - idadeFilho1 - idadeFilho2;
+
+    if (idadeFilho3 < 0) {
+       alert('As idades dos filhos fornecidas são maiores que a idade de Dona Mônica. Verique os valores!');
+       return; // Interrompe a execução se a idade for inválida
+    }
+
+    const idadeMaisVelho = Math.max(idadeFilho1, idadeFilho2, idadeFilho3);
+    document.getElementById('idadeMaisVelho').textContent = idadeMaisVelho;
+
+});
+</script>
+</script>
+   
